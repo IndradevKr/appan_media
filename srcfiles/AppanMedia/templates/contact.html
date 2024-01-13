@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="form-container">
+  <h2 style="text-align: center">Contact Us</h2>
+  <hr />
+  <form action="{% url 'contact' %}" method="post">
+    {% csrf_token %}
+    <div class="row">
+      {{ form.non_field_errors }}
+      <div class="fieldWrapper">
+        {{form.fullName.errors}}
+        <div class="form-content">
+          <label for="{{form.fullName.fullName}}">Full Name</label><br />
+        </div>
+        <div class="form-content">{{form.fullName}}</div>
+        <br />
+      </div>
+
+      <div class="fieldWrapper">
+        {{form.email.errors}}
+        <div class="form-content">
+          <label for="{{form.email.email}}">Email</label>
+        </div>
+        <div class="form-content">{{form.email}}</div>
+      </div>
+
+      <div class="fieldWrapper">
+        {{form.phone.errors}}
+        <div class="form-content">
+          <label for="{{form.phone.phone}}">Phone</label>
+        </div>
+        <div class="form-content">{{form.phone}}</div>
+      </div>
+
+      <div class="fieldWrapper">
+        {{form.message.errors}}
+        <div class="form-content">
+          <label for="{{form.message.message}}">Message</label>
+        </div>
+        <div class="form-content">{{form.message}}</div>
+      </div>
+      <div class="form-content">
+        <input type="submit" value="Send" />
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock content %}

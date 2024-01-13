@@ -1,0 +1,121 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section class="intro">
+  <div class="index-intro">
+    <div class="typewriter">
+      <h3>जय मगहि, सबकोइ जगही !!</h3>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container-fluid" style="width: 100%">
+    <h2 style="text-align: center">What We Are</h2>
+
+    <div class="index-service">
+      <div class="row">
+        <div class="col-4 mt-1 mb-1">
+          <div class="card text-center">
+            <div class="card-header">Service 1</div>
+            <p class="card-text">This is my service :)</p>
+          </div>
+        </div>
+
+        <div class="col-4 mt-1 mb-1">
+          <div class="card text-center">
+            <div class="card-header">Service 2</div>
+            <p class="card-text">This is my service :)</p>
+          </div>
+        </div>
+
+        <div class="col-4 mt-1 mb-1">
+          <div class="card text-center">
+            <div class="card-header">Service 3</div>
+            <p class="card-text">This is my service :)</p>
+          </div>
+        </div>
+
+        <div class="col-4 mt-1 mb-1">
+          <div class="card text-center">
+            <div class="card-header">Service 4</div>
+            <p class="card-text">This is my service :)</p>
+          </div>
+        </div>
+
+        <div class="col-4 mt-1 mb-1">
+          <div class="card text-center">
+            <div class="card-header">Service 5</div>
+            <p class="card-text">This is my service :)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial">
+  <div class="container-fluid">
+    <div id="carousel-container" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        {% for testimonial in testimonials_list %}
+
+        <div class="carousel-item active">
+          <div class="carousel-caption">
+            <p>"{{testimonial.client_feedback}}"</p>
+            {% if testimonial.client_image %}
+            <img
+              src="/media/{{testimonial.client_image}}"
+              alt=""
+              style="width: 100px; height: 100px; border-radius: 50%"
+            />
+            {% else %}
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+            />
+            {% endif %}
+            <div id="image-caption">~{{testimonial.client_name}}</div>
+          </div>
+        </div>
+
+        {% endfor %}
+
+        <div class="carousel-item">
+          <div class="carousel-caption">
+            <p>"This is for demo purpose only.... para 2"</p>
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+            />
+            <div id="image-caption">Fulgen Magahi</div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="carousel-caption">
+            <p>"This is for demo purpose only....para 3"</p>
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+            />
+            <div id="image-caption">Fulgen Magahi</div>
+          </div>
+        </div>
+      </div>
+
+      <a
+        class="carousel-control-prev"
+        href="#carousel-container"
+        data-slide="prev"
+      >
+        <i class="fas fa-arrow-left"></i>
+      </a>
+
+      <a
+        class="carousel-control-next"
+        href="#carousel-container"
+        data-slide="next"
+      >
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

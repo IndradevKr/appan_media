@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<h2 style="color: #0b2239; margin-bottom: 20px">
+  <u>{{blog_obj.title}}</u>
+</h1>
+<h3 style="color: #0b2239; margin-bottom: 20px">
+  <em>{{blog_obj.subtitle}}</em>
+</h3>
+{% if blog_obj.image %}
+<img
+  src="/media/{{blog_obj.image}}"
+  alt=""
+  class="img-fluid center-image content-image"
+/>
+{% else %}
+<img
+  src="{% static 'default.svg' %}"
+  alt=""
+  class="img-fluid center-image content-image"
+/>
+{% endif %}
+<p>{{blog_obj.content|safe}}</p>
+
+{% for comment in comments %}
+<div class="card-header" style="padding: 10px">
+  <p class="font-weight-bold">
+    <span class="comment-profile">
+      <img
+        src="{% static 'profile.svg' %}"
+        style="width: 30px; height: 30px"
+        alt=""
+      />
+    </span>
+    {{ comment.name }}
+    <span class="text-muted font-weight-normal">
+      {{ comment.created_on|date:"F j, Y"}}
+    </span>
+  </p>
+  {{ comment.content | linebreaks }}
+</div>
+{% endfor %}
+
+<div class="card-body">
+  {% if new_comment %}
+  <div class="alert alert-success" role="alert">
+    Thank you for your valuable comment! Your comment will be approved soon!
+  </div>
+  {% else %}
+  <h3>Leave a comment</h3>
+  <div class="comment__form">
+    <form method="post" style="margin-top: 1.3em">
+      {% csrf_token %} {{ comment_form.as_p }}
+      <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+    </form>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock content %}

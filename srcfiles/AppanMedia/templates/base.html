@@ -1,0 +1,130 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    
+    <style type="text/css">
+      /* Custom navbar toggler  */
+      .custom-toggler .navbar-toggler-icon {
+        background-image: url("https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/menu-128.png");
+      }
+    </style>
+    <title>AppanMedia</title>
+  </head>
+  <body>
+    <header>
+      <!-- <div class="ads">
+      <picture>
+        <source media="(min-width:650px)" srcset="{% static 'AppanMedia.gif' %}">
+        <source media="(min-width:465px)" srcset="{% static 'AppanMedia.gif' %}">
+        <img src="{% static 'AppanMedia.gif' %}" alt="Ads" style="width:100%;">
+      </picture>
+    </div> -->
+      <nav
+        id="navbar_top"
+        class="navbar navbar-custom navbar-expand-sm navbar-fixed-top"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'index' %}">
+            <img
+            src="{% static 'Appan-Media-Logo.png' %}"
+            width="150"
+            height="150"
+            class="d-inline-block align-top"
+            alt=""
+            />
+          </a>
+          <button
+            class="navbar-toggler ml-auto custom-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="navbar-collapse collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href=" {% url 'index' %}">
+                  <strong>Home</strong>
+                  <span class="sr-only">(current)</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=" {% url 'blogs' %} "
+                  ><strong>Blog</strong></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}"><strong>About</strong></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}"
+                  ><strong>Contact</strong></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'services' %}"><strong>Services</strong></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+      {% block content %} {% endblock content %}
+
+    <footer class="text-light">
+      <!-- Copyright -->
+      <div class="footer-section" style="background: linear-gradient(to left, #0b2239, #1D2B64);">
+      <span class="copyright">
+        <strong>© 2021 | Appan Media Production House Pvt. Ltd.</strong> </span>
+
+        <span class="media-link mx-3">
+            <a class="media-icon" href="" style="width:1rem; height:1rem;"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+            <a class="media-icon" href="" style="width:1rem; height:1rem;"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+            <a class="media-icon" href="" style="width:1rem; height:1rem;"><i class="far fa-envelope" aria-hidden="true"></i></a>
+
+            <a class="developer-intro mx-2" href="" style="text-align:right; color: #fff;">Developed By: Indradev Mahato</a>
+      </span>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <!-- <script type="text/javascript" src="{% static 'js/script.js' %}"></script> -->
+  </body>
+</html>
